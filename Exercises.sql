@@ -56,3 +56,15 @@ SELECT
     CONCAT(stock_quantity, ' ', 'in stock') AS Quantity
 FROM
     books;
+    
+    select released_year, count(released_year) from books group by released_year;
+    
+    select sum(stock_quantity) from books;
+    
+    select concat(author_lname, ' ', author_fname) as Authors,avg(released_year) from books group by Authors;
+    
+    select concat(author_lname, ' ', author_fname) as 'Author Name' , pages from books
+    where pages = (select max(pages) from books) ;
+    
+    select released_year, count(*) as Books, avg(pages) as 'avg pages' from books group by released_year
+    order by released_year;
